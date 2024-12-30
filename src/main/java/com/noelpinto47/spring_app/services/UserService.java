@@ -30,4 +30,10 @@ public class UserService {
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
     }
+
+    public List<String> getAllUserNames() {
+        return userRepository.findAll().stream()
+                .map(User::getName)
+                .toList();
+    }
 }
