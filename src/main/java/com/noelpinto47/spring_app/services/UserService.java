@@ -36,4 +36,10 @@ public class UserService {
                 .map(User::getName)
                 .toList();
     }
+
+    public User updateUserEmail(Long id, String email) {
+        User user = getUserById(id);
+        user.setEmail(email);
+        return userRepository.save(user);
+    }
 }

@@ -42,4 +42,9 @@ public class UserController {
     public ResponseEntity<List<String>> getAllUserNames() {
         return ResponseEntity.ok(userService.getAllUserNames());
     }
+
+    @PatchMapping("/{id}/email")
+    public ResponseEntity<User> updateUserEmail(@PathVariable Long id, @RequestBody String email) {
+        return ResponseEntity.ok(userService.updateUserEmail(id, email));
+    }
 }
